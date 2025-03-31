@@ -44,44 +44,44 @@
                Margin="0,20"
                TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark=White}"/>
 
-        <Grid Grid.Row="3" RowDefinitions="Auto,Auto" RowSpacing="10">
+        <Grid Grid.Row="3" RowDefinitions="Auto,*" RowSpacing="10">
             <!-- Scientific Calculator Button -->
             <Button Grid.Row="0" 
                     Text="Scientific" 
                     Clicked="OnScientificCalculatorClicked"
                     FontSize="24"
-                    MinimumHeightRequest="60"/>
+                    HeightRequest="60"/>
 
             <!-- Basic Calculator Buttons -->
             <Grid Grid.Row="1" RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*" RowSpacing="10" ColumnSpacing="10">
                 <!-- Row 1 -->
-                <Button Text="C" Grid.Row="0" Grid.Column="0" Clicked="OnClearClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="±" Grid.Row="0" Grid.Column="1" Clicked="OnSignChangeClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="%" Grid.Row="0" Grid.Column="2" Clicked="OnPercentClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="÷" Grid.Row="0" Grid.Column="3" Clicked="OnOperatorClicked" FontSize="24" MinimumHeightRequest="60"/>
+                <Button Text="C" Grid.Row="0" Grid.Column="0" Clicked="OnClearClicked" FontSize="24"/>
+                <Button Text="±" Grid.Row="0" Grid.Column="1" Clicked="OnSignChangeClicked" FontSize="24"/>
+                <Button Text="%" Grid.Row="0" Grid.Column="2" Clicked="OnPercentClicked" FontSize="24"/>
+                <Button Text="÷" Grid.Row="0" Grid.Column="3" Clicked="OnOperatorClicked" FontSize="24"/>
 
                 <!-- Row 2 -->
-                <Button Text="7" Grid.Row="1" Grid.Column="0" Clicked="OnNumberClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="8" Grid.Row="1" Grid.Column="1" Clicked="OnNumberClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="9" Grid.Row="1" Grid.Column="2" Clicked="OnNumberClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="×" Grid.Row="1" Grid.Column="3" Clicked="OnOperatorClicked" FontSize="24" MinimumHeightRequest="60"/>
+                <Button Text="7" Grid.Row="1" Grid.Column="0" Clicked="OnNumberClicked" FontSize="24"/>
+                <Button Text="8" Grid.Row="1" Grid.Column="1" Clicked="OnNumberClicked" FontSize="24"/>
+                <Button Text="9" Grid.Row="1" Grid.Column="2" Clicked="OnNumberClicked" FontSize="24"/>
+                <Button Text="×" Grid.Row="1" Grid.Column="3" Clicked="OnOperatorClicked" FontSize="24"/>
 
                 <!-- Row 3 -->
-                <Button Text="4" Grid.Row="2" Grid.Column="0" Clicked="OnNumberClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="5" Grid.Row="2" Grid.Column="1" Clicked="OnNumberClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="6" Grid.Row="2" Grid.Column="2" Clicked="OnNumberClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="-" Grid.Row="2" Grid.Column="3" Clicked="OnOperatorClicked" FontSize="24" MinimumHeightRequest="60"/>
+                <Button Text="4" Grid.Row="2" Grid.Column="0" Clicked="OnNumberClicked" FontSize="24"/>
+                <Button Text="5" Grid.Row="2" Grid.Column="1" Clicked="OnNumberClicked" FontSize="24"/>
+                <Button Text="6" Grid.Row="2" Grid.Column="2" Clicked="OnNumberClicked" FontSize="24"/>
+                <Button Text="-" Grid.Row="2" Grid.Column="3" Clicked="OnOperatorClicked" FontSize="24"/>
 
                 <!-- Row 4 -->
-                <Button Text="1" Grid.Row="3" Grid.Column="0" Clicked="OnNumberClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="2" Grid.Row="3" Grid.Column="1" Clicked="OnNumberClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="3" Grid.Row="3" Grid.Column="2" Clicked="OnNumberClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="+" Grid.Row="3" Grid.Column="3" Clicked="OnOperatorClicked" FontSize="24" MinimumHeightRequest="60"/>
+                <Button Text="1" Grid.Row="3" Grid.Column="0" Clicked="OnNumberClicked" FontSize="24"/>
+                <Button Text="2" Grid.Row="3" Grid.Column="1" Clicked="OnNumberClicked" FontSize="24"/>
+                <Button Text="3" Grid.Row="3" Grid.Column="2" Clicked="OnNumberClicked" FontSize="24"/>
+                <Button Text="+" Grid.Row="3" Grid.Column="3" Clicked="OnOperatorClicked" FontSize="24"/>
 
                 <!-- Row 5 -->
-                <Button Text="0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Clicked="OnNumberClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="." Grid.Row="4" Grid.Column="2" Clicked="OnDecimalClicked" FontSize="24" MinimumHeightRequest="60"/>
-                <Button Text="=" Grid.Row="4" Grid.Column="3" Clicked="OnEqualsClicked" FontSize="24" MinimumHeightRequest="60"/>
+                <Button Text="0" Grid.Row="4" Grid.Column="0" Grid.ColumnSpan="2" Clicked="OnNumberClicked" FontSize="24"/>
+                <Button Text="." Grid.Row="4" Grid.Column="2" Clicked="OnDecimalClicked" FontSize="24"/>
+                <Button Text="=" Grid.Row="4" Grid.Column="3" Clicked="OnEqualsClicked" FontSize="24"/>
             </Grid>
         </Grid>
     </Grid>
