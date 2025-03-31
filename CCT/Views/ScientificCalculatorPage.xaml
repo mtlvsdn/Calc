@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CalculatorApp.MainPage"
-             Title="Calculator">
+             x:Class="CalculatorApp.Views.ScientificCalculatorPage"
+             Title="Scientific Calculator">
 
-    <Grid x:Name="CalculatorGrid" RowDefinitions="Auto,Auto,Auto,*" Padding="20">
+    <Grid x:Name="ScientificGrid" RowDefinitions="Auto,Auto,Auto,*" Padding="20">
         <HorizontalStackLayout Grid.Row="0" Spacing="10" HorizontalOptions="End">
             <Frame HeightRequest="50" 
                    WidthRequest="110" 
@@ -16,14 +16,12 @@
                            Aspect="AspectFit" 
                            HeightRequest="24" 
                            WidthRequest="24"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"/>
+                           VerticalOptions="Center"/>
                     <Label Grid.Column="1" 
                            Text="History" 
                            FontSize="18"
                            TextColor="White"
-                           VerticalOptions="Center"
-                           HorizontalOptions="Center"/>
+                           VerticalOptions="Center"/>
                 </Grid>
                 <Frame.GestureRecognizers>
                     <TapGestureRecognizer Tapped="OnHistoryClicked"/>
@@ -45,12 +43,19 @@
                TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark=White}"/>
 
         <Grid Grid.Row="3" RowDefinitions="Auto,Auto" RowSpacing="10">
-            <!-- Scientific Calculator Button -->
-            <Button Grid.Row="0" 
-                    Text="Scientific" 
-                    Clicked="OnScientificCalculatorClicked"
-                    FontSize="24"
-                    MinimumHeightRequest="60"/>
+            <!-- Scientific Functions -->
+            <Grid Grid.Row="0" RowDefinitions="*,*" ColumnDefinitions="*,*,*,*" RowSpacing="10" ColumnSpacing="10">
+                <!-- Row 1 -->
+                <Button Text="sin" Grid.Row="0" Grid.Column="0" Clicked="OnScientificFunctionClicked" FontSize="24" MinimumHeightRequest="60"/>
+                <Button Text="cos" Grid.Row="0" Grid.Column="1" Clicked="OnScientificFunctionClicked" FontSize="24" MinimumHeightRequest="60"/>
+                <Button Text="tan" Grid.Row="0" Grid.Column="2" Clicked="OnScientificFunctionClicked" FontSize="24" MinimumHeightRequest="60"/>
+                <Button Text="log" Grid.Row="0" Grid.Column="3" Clicked="OnScientificFunctionClicked" FontSize="24" MinimumHeightRequest="60"/>
+                <!-- Row 2 -->
+                <Button Text="√" Grid.Row="1" Grid.Column="0" Clicked="OnScientificFunctionClicked" FontSize="24" MinimumHeightRequest="60"/>
+                <Button Text="x²" Grid.Row="1" Grid.Column="1" Clicked="OnScientificFunctionClicked" FontSize="24" MinimumHeightRequest="60"/>
+                <Button Text="π" Grid.Row="1" Grid.Column="2" Clicked="OnScientificFunctionClicked" FontSize="24" MinimumHeightRequest="60"/>
+                <Button Text="e" Grid.Row="1" Grid.Column="3" Clicked="OnScientificFunctionClicked" FontSize="24" MinimumHeightRequest="60"/>
+            </Grid>
 
             <!-- Basic Calculator Buttons -->
             <Grid Grid.Row="1" RowDefinitions="*,*,*,*,*" ColumnDefinitions="*,*,*,*" RowSpacing="10" ColumnSpacing="10">

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="CalculatorApp.Views.ColorPage"
+             Title="Color Theme">
+
+    <Grid RowDefinitions="Auto,*" Padding="20">
+        <Label Text="Select Color Theme" 
+               FontSize="24" 
+               HorizontalOptions="Center" 
+               Margin="0,0,0,20"
+               TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark=White}"/>
+
+        <Grid Grid.Row="1" 
+              RowDefinitions="*,*,*" 
+              ColumnDefinitions="*,*,*" 
+              RowSpacing="10" 
+              ColumnSpacing="10">
+            <!-- Row 1 -->
+            <Button Grid.Row="0" Grid.Column="0" 
+                    BackgroundColor="Red" 
+                    Clicked="OnColorSelected"
+                    x:Name="RedButton"/>
+            <Button Grid.Row="0" Grid.Column="1" 
+                    BackgroundColor="Green" 
+                    Clicked="OnColorSelected"
+                    x:Name="GreenButton"/>
+            <Button Grid.Row="0" Grid.Column="2" 
+                    BackgroundColor="Blue" 
+                    Clicked="OnColorSelected"
+                    x:Name="BlueButton"/>
+
+            <!-- Row 2 -->
+            <Button Grid.Row="1" Grid.Column="0" 
+                    BackgroundColor="Purple" 
+                    Clicked="OnColorSelected"
+                    x:Name="PurpleButton"/>
+            <Button Grid.Row="1" Grid.Column="1" 
+                    BackgroundColor="Orange" 
+                    Clicked="OnColorSelected"
+                    x:Name="OrangeButton"/>
+            <Button Grid.Row="1" Grid.Column="2" 
+                    BackgroundColor="Yellow" 
+                    Clicked="OnColorSelected"
+                    x:Name="YellowButton"/>
+
+            <!-- Row 3 -->
+            <Button Grid.Row="2" Grid.Column="0" 
+                    BackgroundColor="Pink" 
+                    Clicked="OnColorSelected"
+                    x:Name="PinkButton"/>
+            <Button Grid.Row="2" Grid.Column="1" 
+                    BackgroundColor="Cyan" 
+                    Clicked="OnColorSelected"
+                    x:Name="CyanButton"/>
+            <Button Grid.Row="2" Grid.Column="2" 
+                    BackgroundColor="Gray" 
+                    Clicked="OnColorSelected"
+                    x:Name="GrayButton"/>
+        </Grid>
+    </Grid>
+</ContentPage> 

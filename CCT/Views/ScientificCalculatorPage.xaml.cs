@@ -1,19 +1,9 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Maui;
-using Microsoft.Maui.Controls;
-using Microsoft.Maui.Controls.Xaml;
 using System.Collections.ObjectModel;
-using CalculatorApp.Views;
 using CalculatorApp.Services;
 
-namespace CalculatorApp;
+namespace CalculatorApp.Views;
 
-[XamlCompilation(XamlCompilationOptions.Compile)]
-public partial class MainPage : ContentPage
+public partial class ScientificCalculatorPage : ContentPage
 {
     private string currentNumber = "0";
     private string currentOperator = "";
@@ -22,13 +12,12 @@ public partial class MainPage : ContentPage
     private readonly CalculationHistoryService _historyService;
     private readonly ColorSettingsService _colorSettingsService;
 
-    public MainPage()
+    public ScientificCalculatorPage()
     {
         InitializeComponent();
         _historyService = CalculationHistoryService.Instance;
         _colorSettingsService = ColorSettingsService.Instance;
         _colorSettingsService.ColorChanged += OnColorChanged;
-        Application.Current.UserAppTheme = AppTheme.Dark;
     }
 
     protected override void OnAppearing()
@@ -48,7 +37,7 @@ public partial class MainPage : ContentPage
     private void UpdateButtonColors(Color color)
     {
         // Update all buttons in the main grid
-        var mainGrid = this.FindByName<Grid>("CalculatorGrid");
+        var mainGrid = this.FindByName<Grid>("ScientificGrid");
         if (mainGrid != null)
         {
             // Update all buttons recursively
@@ -84,11 +73,6 @@ public partial class MainPage : ContentPage
                 }
             }
         }
-    }
-
-    private async void OnScientificCalculatorClicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(Views.ScientificCalculatorPage));
     }
 
     private void OnNumberClicked(object sender, EventArgs e)
@@ -208,14 +192,68 @@ public partial class MainPage : ContentPage
         }
     }
 
-    private void OnThemeSwitchToggled(object sender, ToggledEventArgs e)
+    private void OnScientificFunctionClicked(object sender, EventArgs e)
     {
-        Application.Current.UserAppTheme = e.Value ? AppTheme.Light : AppTheme.Dark;
-    }
+        if (sender is Button button)
+        {
+            double number = double.Parse(currentNumber);
+            double result = 0;
+            string function = button.Text;
 
-    private async void OnViewHistoryClicked(object sender, EventArgs e)
-    {
-        await Shell.Current.GoToAsync(nameof(Views.HistoryPage));
+            switch (function)
+            {
+                case "sin":
+                    result = Math.Sin(number * Math.PI / 180);
+                    function = "sin";
+                    break;
+                case "cos":
+                    result = Math.Cos(number * Math.PI / 180);
+                    function = "cos";
+                    break;
+                case "tan":
+                    result = Math.Tan(number * Math.PI / 180);
+                    function = "tan";
+                    break;
+                case "log":
+                    if (number > 0)
+                        result = Math.Log10(number);
+                    else
+                    {
+                        DisplayLabel.Text = "Error";
+                        return;
+                    }
+                    function = "log";
+                    break;
+                case "√":
+                    if (number >= 0)
+                        result = Math.Sqrt(number);
+                    else
+                    {
+                        DisplayLabel.Text = "Error";
+                        return;
+                    }
+                    function = "√";
+                    break;
+                case "x²":
+                    result = number * number;
+                    function = "x²";
+                    break;
+                case "π":
+                    result = Math.PI;
+                    function = "π";
+                    break;
+                case "e":
+                    result = Math.E;
+                    function = "e";
+                    break;
+            }
+
+            var calculation = $"{function}({number}) = {result}";
+            _historyService.AddCalculation(calculation);
+            currentNumber = result.ToString();
+            DisplayLabel.Text = currentNumber;
+            isNewNumber = true;
+        }
     }
 
     private async void OnSettingsClicked(object sender, EventArgs e)

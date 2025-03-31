@@ -1,26 +1,27 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
-             x:Class="CalculatorApp.HistoryPage"
-             Title="Calculation History">
+             x:Class="CalculatorApp.Views.SettingsPage"
+             Title="Settings">
 
     <Grid RowDefinitions="Auto,*" Padding="20">
-        <Label Text="Calculation History" 
+        <Label Text="Settings" 
                FontSize="24" 
                HorizontalOptions="Center" 
                Margin="0,0,0,20"
                TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark=White}"/>
 
         <CollectionView Grid.Row="1" 
-                        x:Name="HistoryCollectionView"
-                        ItemsSource="{Binding History}"
-                        SelectionMode="None">
+                        ItemsSource="{Binding SettingsOptions}"
+                        SelectionMode="Single"
+                        SelectionChanged="OnSettingSelected">
             <CollectionView.ItemTemplate>
                 <DataTemplate>
-                    <Label Text="{Binding}"
-                           FontSize="18"
-                           Margin="0,5"
-                           TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark=White}"/>
+                    <Grid Padding="10">
+                        <Label Text="{Binding}"
+                               FontSize="18"
+                               TextColor="{AppThemeBinding Light={StaticResource Primary}, Dark=White}"/>
+                    </Grid>
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
